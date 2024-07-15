@@ -1,23 +1,26 @@
-﻿using librarymanagement1.Models;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-using System.Data.SqlClient;
-using System.Configuration;
-
+using librarymanagement1.Models;
 
 namespace librarymanagement1.Controllers
 {
     public class IssueBookController : Controller
     {
         // GET: IssueBook
-       
-    
-        public ActionResult Issuebook(ViewModel model)
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
+
+        // GET: IssueBook
+
+        private library_mangEntities1 db = new library_mangEntities1();
+
+        public ActionResult Issuebook(ViewModel viewModel)
         {
             /*List<Bookdetails> listOfBookdetails = new List<Bookdetails>();
             listOfBookdetails.Add(new Bookdetails() { AccessionNo = 1, Author = "ABC", Subject = "ABC", Publisher = "ABC" });
@@ -42,15 +45,94 @@ namespace librarymanagement1.Controllers
 
             // Pass filteredResults to view or perform further actions as needed
 
-            return View();  
+
+            if (!string.IsNullOrEmpty(viewModel.AdmissionNoFilter) && !string.IsNullOrEmpty(viewModel.AccessionNoFilter))
+            {
+                //    var student = db.Students.FirstOrDefault(s => s.AddmissionNo == viewModel.AddmissionNoFilter);
+                //    var book = db.Books.FirstOrDefault(b => b.AccessionNo == viewModel.AccessionNoFilter);
+
+                //    if (student != null && book != null)
+                //    {
+                //        viewModel.Name = student.Name;
+                //        viewModel.Class = student.Class;
+                //        viewModel.RollNo = student.RollNo;
+                //        viewModel.FName = student.FName;
+                //        viewModel.FMobile = student.FMobile;
+                //        viewModel.Title = book.Title;
+                //        viewModel.Author = book.Author;
+                //        viewModel.Subject = book.Subject;
+                //        viewModel.Publisher = book.Publisher;
+                //    }
+                //}
+
+                int admissionNo;
+                int accessionNo;
+
+                // Try to parse the AddmissionNoFilter and AccessionNoFilter to integers
+                if (int.TryParse(viewModel.AdmissionNoFilter, out admissionNo) && int.TryParse(viewModel.AccessionNoFilter, out accessionNo))
+                {
+                    var student = db.Students.FirstOrDefault(s => s.AdmissionNo == admissionNo);
+                    var book = db.Books.FirstOrDefault(b => b.AccessionNo == accessionNo);
+
+                    if (student != null && book != null)
+                    {
+                        viewModel.StudentName = student.StudentName;
+                        viewModel.Class = student.Class;
+                        viewModel.RollNo = student.RollNo;
+                        viewModel.FName = student.FName;
+                        viewModel.FMobile = student.FMobile;
+                        viewModel.Title = book.Title;
+                        viewModel.Author = book.Author;
+                        viewModel.Subject = book.Subject;
+                        viewModel.Publisher = book.Publisher;
+                    }
+                }
+                else
+                {
+                    // Handle the case where the input values are not valid integers
+                    ModelState.AddModelError(string.Empty, "Invalid AddmissionNo or AccessionNo.");
+                }
+            }
+
+
+
+
+            return View(viewModel);
         }
         public ActionResult Receivebook()
         {
 
             return View();
         }
-        public ActionResult IssueR̥egister()
+
+        
+        public ActionResult IssueR̥egister(ViewModel viewModel)
         {
+            var issuedBooks = db.ViewModels.AsQueryable();
+
+            // Apply filters
+            if (string.IsNullOrEmpty(viewModel.AdmissionNoFilter))
+            {
+            }
+            else
+            {
+                int admissionNo;
+                if (int.TryParse(viewModel.AdmissionNoFilter, out admissionNo))
+                {
+                    issuedBooks = issuedBooks.Where(b => b.AdmissionNo == admissionNo);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(viewModel.AccessionNoFilter))
+            {
+                int accessionNo;
+                if (int.TryParse(viewModel.AccessionNoFilter, out accessionNo))
+                {
+                    issuedBooks = issuedBooks.Where(b => b.AccessionNo == accessionNo);
+                }
+            }
+
+            viewModel.ViewModels = issuedBooks.ToList();
             return View();
         }
         public ActionResult ReceiveR̥egister()
@@ -61,7 +143,7 @@ namespace librarymanagement1.Controllers
                 {
                       Date = DateTime.Today,
                     SrNo = 1,
-                    AddmissionNo = 7,
+                    AdmissionNo = 7,
                     AccessionNo = 5,
                     Name = "John Doe",
                     RollNo = 3,
@@ -78,7 +160,7 @@ namespace librarymanagement1.Controllers
                 {
                     Date = DateTime.Today.AddDays(-1),
                     SrNo = 2,
-                    AddmissionNo = 3,
+                    AdmissionNo = 3,
                     AccessionNo = 1,
                     Name = "Jane Doe",
                     RollNo = 3,
@@ -94,12 +176,12 @@ namespace librarymanagement1.Controllers
 
                 };
 
-                
+
             return View(receiveRegister);
         }
         public ActionResult Index()
         {
-           
+
             return View();
         }
 
@@ -108,7 +190,6 @@ namespace librarymanagement1.Controllers
             // List<ViewModel> model = List<ViewModel>;
 
             //return View();
-
             List<ViewModel> bookLedger = new List<ViewModel>
         {
             new ViewModel
@@ -140,4 +221,6 @@ namespace librarymanagement1.Controllers
         }
 
     }
+
+   
 }

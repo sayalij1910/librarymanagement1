@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family: Arial, Helvetica, sans - serif;
     font-size: 13 px;
     /*background-image: url('image/bookentry.png');*/
@@ -108,6 +108,11 @@ tr:nth-child(2n+1) {
 
 .editor {
     margin-left: 8px;
+    margin-right: 686px;
+}
+.editor1 {
+    margin-right: 687px;
+    position: inherit;
 }
 
 #txtbox {
@@ -117,29 +122,37 @@ tr:nth-child(2n+1) {
 .editor-field1 {
     margin-top: -41px;
     margin-left: 147px;
+    margin-right: 577px;
 }
 
 .editor-field11 {
     margin-top: 1px;
-    margin-left: 182px;
+    margin-left: 118px;
+    /* position: relative; */
+    margin-right: 563px;
 }
 
 
-#date-picker {
+/*#date-picker {
     margin-left: -63px;
     width: 113px;
-}
+}*/
 
 #txtbox1 {
-    margin-top: 0px;
-    margin-left: 365px;
+    
     width: 145px;
 }
 
-#date-picker1 {
+/*#date-picker1 {
     margin-left: 243px;
     margin-top: 1px;
     width: 113px;
+}*/
+
+.editor-field12 {
+    position: inherit;
+    margin-left: 242px;
+    margin-right: 439px;
 }
 
 .editor-field2 {
@@ -158,8 +171,11 @@ tr:nth-child(2n+1) {
     margin-left: 400px;
 }
 
-/*.editor-field13 {
-}*/
+.editor-field13 {
+    position: inherit;
+    margin-left: 364px;
+    width: 145px;
+}
 
 .editor-field4 {
     margin-left: 556px;
@@ -167,39 +183,48 @@ tr:nth-child(2n+1) {
 }
 
 #txtbox2 {
-    margin-left: 515px;
+    
     width: 150px;
 }
 
-/*.editor-field14 {
-}*/
+.editor-field14 {
+    position: inherit;
+    margin-left: 516px;
+    margin-right: 133px;
+}
 
 .editor-field5 {
     margin-left: 715px;
     margin-top: -40px;
 }
 
-/*.editor-field15 {
+.editor-field15 {
+    margin-right: 4px;
+    position: inherit;
+    margin-left: 674px;
+    /* width: 91px;
 }*/
-
-
-#txtbox3 {
-    margin-left: 671px;
-    width: 128px;
 }
+
+ #txtbox3{
+             width: 123px;
+         }
+
 .table-responsive {
     overflow-x: auto;
-    /*white-space: nowrap;*/ /* Optional: Prevent text wrapping in cells */
-    /*max-width: 100%;*/
+    white-space: nowrap; /*/* Optional: Prevent text wrapping in cells */
+    max-width: 100%;
     overflow-y: auto;
     height: 80%;
 }
+
 
 .h1 {
     color: blue;
     margin-top: -40px;
     font: bold;
 }
+
 .right-sidebar {
     height: 100%; /* Set the height of the sidebar to 100% */
     width: 200px; /* Set the width of the sidebar */
