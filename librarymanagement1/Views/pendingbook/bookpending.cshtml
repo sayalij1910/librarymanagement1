@@ -1,0 +1,181 @@
+﻿
+
+@model librarymanagement1.Models.Book
+
+@{
+    ViewBag.Title = "bookpending";
+    Layout = null;
+}
+
+<h2>bookpending</h2>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+
+    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.13.2.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+
+    @*<link href="~/Content/style.css" rel="stylesheet" />*@
+
+
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <div class="navbar">
+            <a href="#" class="active">Home</a>
+        </div>
+
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+           
+        </div>
+        <div class="h1"> <h1><center> LIST OF PENDING/ISSUED BOOK</center></h1></div>
+        <!-- Dropdown List -->
+        <!-- Dropdown and Textboxes -->
+        <div class="form-row">
+            <select class="dropdown">
+                <option value="1">AccessionNo</option>
+                <option value="2">Author</option>
+                <option value="3">Barcode</option>
+                <option value="4">BillNo</option>
+                <option value="5">BookNo</option>
+                <option value="6">Class</option>
+                <option value="7">Cost</option>
+                <option value="8">Edition</option>
+                <option value="9">ISBN</option>
+                <option value="10">Location</option>
+                <option value="11">BookNo</option>
+                <option value="12">Class</option>
+            </select>
+            <input type="text" class="textbox" placeholder="Enter value">
+
+            <select class="dropdown1">
+                <option value="1">AccessionNo</option>
+                <option value="2">Author</option>
+                <option value="3">Barcode</option>
+                <option value="4">BillNo</option>
+                <option value="5">BookNo</option>
+                <option value="6">Class</option>
+                <option value="7">Cost</option>
+                <option value="8">Edition</option>
+                <option value="9">ISBN</option>
+                <option value="10">Location</option>
+                <option value="11">BookNo</option>
+                <option value="12">Class</option>
+
+            </select>
+
+
+            <input type="text" class="textbox1" placeholder="Enter value">
+            <button class="button" onclick="okButtonClick()">OK</button>
+
+        </div>
+        <hr />
+
+        <table class="table table-striped" border="1">
+            <tr>
+                <th>AccNo</th>
+
+                <th>Title</th>
+                <th>Author</th>
+                <th>Subject</th>
+                <th>Issued to</th>
+                <th>No</th>
+                <th>Issued on</th>
+                <th>Class</th>
+                <th>Est.Fine</th>
+
+
+
+                <!-- Add more table headers for other columns -->
+            </tr>
+
+        </table>
+
+
+
+
+
+        <label class="checkbox-inline">
+            <input type="checkbox" id="selectAllCheckbox"> Select All
+        </label>
+
+        <button class="button1" id="sendSmsButton">Send SMS</button>
+
+
+        <div class="editor-field2">
+            @Html.Label("Total no of books")
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.BookNo, new { id = "txtbox" })
+            </div>
+            <div class="editor-fields2">
+                @Html.Label("Total Est Fine")
+                <div class="editor-field1">
+                    @Html.TextBoxFor(model => model.Cost, new { id = "txtbox1" })
+                </div>
+
+            </div>
+            @*<script type="text/javascript">
+            function okButtonClick() {
+                alert("OK Button Clicked.");
+            }
+        </script>*@
+            <script>
+            $(document).ready(function () {
+            $('#sendSmsButton').click(function () {
+            // Assuming you want to send data from the form via AJAX
+            var formData = $('#issueForm').serialize(); // Serialize form data
+
+            $.ajax({
+            url: '@Url.Action("SendSMS", "ControllerName")', // Replace with your controller and action
+            type: 'POST', // Assuming you use POST method
+            data: formData,
+            success: function (response) {
+            // Handle success response here, if needed
+            alert('SMS sent successfully!');
+            },
+            error: function (error) {
+            // Handle error response here, if needed
+            alert('Error sending SMS: ' + error.responseText);l
+            }
+            });
+            });
+            });
+            function okButtonClick() {
+            alert("OK Button Clicked.");
+            }
+            </script>
+
+        </div>
+    </div>
+    <div class="right-sidebar">
+        <!-- Right sidebar content -->
+        <h2><center>MY LIBRARY</center></h2>
+        <ul>
+            <li><a href="https://localhost:44352/Home/listbook">OPEN IN EXCEL</a></li>
+            <li><a href="https://localhost:44352/Home/listbooks">LIST OF BOOKS</a></li>
+            <li><a href="https://localhost:44352/bookentry/Index">NEW BOOK ENTRY</a></li>
+            <li><a href="https://localhost:44352/IssueBook/Issuebook">ISSUE BOOK</a></li>
+            <li><a href="https://localhost:44352/IssueBook/Receivebook">RECEIVE BOOK</a></li>
+            <li><a href="https://localhost:44352/IssueBook/IssueR%CC%A5egister">BOOKS ISSUE REGISTER</a></li>
+            <li><a href="https://localhost:44352/IssueBook/ReceiveR%CC%A5egister"> BOOKS RECEIVE REGISTER</a></li>
+            <li><a href="https://localhost:44352/IssueBook/BookLedger">BOOK LEDGER</a></li>
+            <li><a href="https://localhost:44352/pendingbook/bookpending">PENDING BOOK</a></li>
+
+        </ul>
+    </div>
+
+</body>
+
+
+</html>

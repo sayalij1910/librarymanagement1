@@ -1,0 +1,502 @@
+﻿
+@model librarymanagement1.Models.Book
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+    <link href="~/Content/style1.css" rel="stylesheet" />
+
+
+    <script>
+        function goBack() {
+            window.history.back();
+            updateForm();
+        }
+
+        function goForward() {
+            window.history.forward();
+            updateForm();
+        }
+
+        function saveForm() {
+            alert("Save Button Clicked.");
+            if (confirm("Do you want to save this book?")) {
+
+                var bookData = {
+                AccessionNo: document.getElementById('AccessionNo').value,
+                BarcodeID: document.getElementById('BarcodeID').value,
+                Title: document.getElementById('Title').value,
+                Author: document.getElementById('Author').value,
+                Subject: document.getElementById('Subject').value,
+                Publisher: document.getElementById('Publisher').value,
+                Edition: document.getElementById('Edition').value,
+                Year: document.getElementById('Year').value,
+                Pages: document.getElementById('Pages').value,
+                Vol: document.getElementById('Vol').value,
+                Location: document.getElementById('Location').value,
+                Topic: document.getElementById('Topic').value,
+                ISBN: document.getElementById('ISBN').value,
+                Source: document.getElementById('Source').value,
+                Class: document.getElementById('Class').value,
+                BillNo: document.getElementById('BillNo').value,
+                Date: document.getElementById('Date').value,
+                BookNo: document.getElementById('BookNo').value,
+                Cost: document.getElementById('Cost').value,
+                WithdrawlNo_Date: document.getElementById('WithdrawlNo_Date').value,
+                Remarks: document.getElementById('Remarks').value
+            };
+
+            $.ajax({
+                url: '@Url.Action("Save", "bookentry")',
+                type: 'POST',
+                data: JSON.stringify(bookData),
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        // Reload the page to reflect changes
+                        location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while trying to save the book.");
+                }
+            });
+                document.getElementById('bookForm').submit();
+            }
+        }
+
+        function deleteForm(AccessionNo) {
+            alert("Delete Button Clicked.");
+            if (confirm("Are you sure you want to delete this book?")) {
+                // Submit the form with delete action
+
+                 $.ajax({
+                url: '@Url.Action("Delete", "bookentry")',
+                     type: 'POST',
+                     data: { AccessionNo: AccessionNo },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        // Reload the page to reflect changes
+                        location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while trying to delete the book.");
+                }
+            });
+                document.getElementById('deleteForm').submit();
+            }
+        }
+
+
+         function updateForm() {
+            alert("Update Button Clicked.");
+            if (confirm("Do you want to update this book?")) {
+                var bookData = {
+                    AccessionNo: document.getElementById('AccessionNo').value,
+                    BarcodeID: document.getElementById('BarcodeID').value,
+                    Title: document.getElementById('Title').value,
+                    Author: document.getElementById('Author').value,
+                    Subject: document.getElementById('Subject').value,
+                    Publisher: document.getElementById('Publisher').value,
+                    Edition: document.getElementById('Edition').value,
+                    Year: document.getElementById('Year').value,
+                    Pages: document.getElementById('Pages').value,
+                    Vol: document.getElementById('Vol').value,
+                    Location: document.getElementById('Location').value,
+                    Topic: document.getElementById('Topic').value,
+                    ISBN: document.getElementById('ISBN').value,
+                    Source: document.getElementById('Source').value,
+                    Class: document.getElementById('Class').value,
+                    BillNo: document.getElementById('BillNo').value,
+                    Date: document.getElementById('Date').value,
+                    BookNo: document.getElementById('BookNo').value,
+                    Cost: document.getElementById('Cost').value,
+                    WithdrawlNo_Date: document.getElementById('WithdrawlNo_Date').value,
+                    Remarks: document.getElementById('Remarks').value
+                };
+
+                $.ajax({
+                    url: '@Url.Action("Update", "bookentry")',
+                    type: 'POST',
+                    data: JSON.stringify(bookData),
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("An error occurred while trying to update the book.");
+                    }
+                });
+            }
+        }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("saveButton").addEventListener("click", saveForm);
+            document.getElementById("deleteButton").addEventListener("click", function () {
+                var AccessionNo = document.getElementById("AccessionNo").value;
+                deleteForm(AccessionNo);
+            });
+            document.getElementById("updateButton").addEventListener("click", updateForm);
+        });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    @*<script>
+            function goBack() {
+                window.history.back();
+            }
+
+            function goForward() {
+                window.history.forward();
+            }
+
+            document.getElementById("saveButton").onclick = function () {
+                alert("Save Button Clicked.");
+            }
+
+            document.getElementById("deleteButton").onclick = function () {
+                alert("delete clicked");
+            }
+
+            //function saveForm() {
+            //    if (confirm("You want to save this book?")) {
+            //        document.getElementById('bookForm').submit();
+            //    }
+            //}
+            ////function saveForm() {
+            ////    document.getElementById('bookForm').submit();
+            ////}
+            //function confirmDelete() {
+            //    if (confirm("Are you sure you want to delete this book?")) {
+            //        // Submit the form with delete action
+            //        document.getElementById('deleteForm').submit();
+            //    }
+            //}
+        </script>*@
+
+
+</head>
+<body>
+    <div class="container">
+
+
+
+        @using (Html.BeginForm("Index", "bookentry", FormMethod.Post, new { id = "bookForm", @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <!-- Navbar -->
+            <div class="navbar">
+                <a href="#" class="active">Home</a>
+            </div>
+
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+              
+            </div>
+
+            <div class="form-horizontal">
+                <h1><center>New Book Entry</center></h1>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AccessionNo, htmlAttributes: new { @class = "control-label1 col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AccessionNo, new { htmlAttributes = new { @class = "form-control", style = "width:315px" } })
+                        @Html.ValidationMessageFor(model => model.AccessionNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group1">
+                    @Html.LabelFor(model => model.BarcodeID, htmlAttributes: new { @class = "control-label2 col-md-2" })
+                    <div class="col-md-11">
+                        @Html.EditorFor(model => model.BarcodeID, new { htmlAttributes = new { @class = "form-control", style = "width: 180px" } })
+                        @Html.ValidationMessageFor(model => model.BarcodeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group2 row">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label3 col-md-2" })
+                    <div class="col-md-12" style="width:615px">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", style = "width:608px" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group3">
+                    @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label4 col-md-2" })
+                    <div class="col-md-13" style="width:615px">
+
+                        @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control1", style = "width:608px" } })
+                        @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group4">
+                    @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label5 col-md-2" })
+                    <div class="col-md-14" style="width: 248px">
+                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", style = "width:240px" } })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group5">
+                    @Html.LabelFor(model => model.Publisher, htmlAttributes: new { @class = "control-label6 col-md-2" })
+                    <div class="col-md-15" style="width:248px">
+                        @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control", style = "width:240px" } })
+                        @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group6">
+                    @Html.LabelFor(model => model.Edition, htmlAttributes: new { @class = "control-label7 col-md-2" })
+                    <div class="col-md-16" style="width:248px">
+                        @Html.EditorFor(model => model.Edition, new { htmlAttributes = new { @class = "form-control", style = "width:240px" } })
+                        @Html.ValidationMessageFor(model => model.Edition, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group7">
+                    @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label8 col-md-2" })
+                    <div class="col-md-17" ,style="width:87px;">
+                        @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", style = "width:80px;" } })
+                        @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group8">
+                    @Html.LabelFor(model => model.Pages, htmlAttributes: new { @class = "control-label9 col-md-2" })
+                    <div class="col-md-18" ,style="width:87px">
+                        @Html.EditorFor(model => model.Pages, new { htmlAttributes = new { @class = "form-control", style = "width:80px" } })
+                        @Html.ValidationMessageFor(model => model.Pages, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group9">
+                    @Html.LabelFor(model => model.Vol, htmlAttributes: new { @class = "control-label10 col-md-2" })
+                    <div class="col-md-19" ,style="width:238px">
+                        @Html.EditorFor(model => model.Vol, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.Vol, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group10">
+                    @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label11 col-md-2" })
+                    <div class="col-md-20" ,style="width:238px">
+                        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group11">
+                    @Html.LabelFor(model => model.Topic, htmlAttributes: new { @class = "control-label12 col-md-2" })
+                    <div class="col-md-21" ,style="width:238px">
+                        @Html.EditorFor(model => model.Topic, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group12">
+                    @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label13 col-md-2" })
+                    <div class="col-md-22" ,style="width:238px">
+                        @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group13">
+                    @Html.LabelFor(model => model.Source, htmlAttributes: new { @class = "control-label14 col-md-2" })
+                    <div class="col-md-23" ,style="width:238px">
+                        @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.Source, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group14">
+                    @Html.LabelFor(model => model.Class, htmlAttributes: new { @class = "control-label15 col-md-2" })
+                    <div class="col-md-24" ,style="width:238px">
+                        @Html.EditorFor(model => model.Class, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.Class, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group15">
+                    @Html.LabelFor(model => model.BillNo, htmlAttributes: new { @class = "control-label16 col-md-2" })
+                    <div class="col-md-25" ,style="width:238px">
+                        @Html.EditorFor(model => model.BillNo, new { htmlAttributes = new { @class = "form-control", style = "width:86px" } })
+                        @Html.ValidationMessageFor(model => model.BillNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group16">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label17 col-md-2" })
+                    <div class="col-md-26" ,tyle="width:238px">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", style = "width:86px" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group17">
+                    @Html.LabelFor(model => model.BookNo, htmlAttributes: new { @class = "control-label18 col-md-2" })
+                    <div class="col-md-27" ,style="width:238px">
+                        @Html.EditorFor(model => model.BookNo, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.BookNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group18">
+                    @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label19 col-md-2" })
+                    <div class="col-md-28" ,style="width:238px">
+                        @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group19">
+                    @Html.LabelFor(model => model.WithdrawlNo_Date, htmlAttributes: new { @class = "control-label20 col-md-2" })
+                    <div class="col-md-29" ,style="width:238px">
+                        @Html.EditorFor(model => model.WithdrawlNo_Date, new { htmlAttributes = new { @class = "form-control", style = "width:182px" } })
+                        @Html.ValidationMessageFor(model => model.WithdrawlNo_Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group20">
+                    @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label21 col-md-2" })
+                    <div class="col-md-30" ,style="width:238px">
+                        @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control", style = "width:238px" } })
+                        @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group21">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" id="saveButton" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                            <div class="form-group22">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" id="deleteButton" value="Delete" class="btn1 btn-default" />
+                        </div>
+                    </div>*@
+
+
+                <div class="form-group" style="margin-top:50px;">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" id="saveButton" value="Save" class="btn btn-default" />
+                        <input type="button" id="deleteButton" value="Delete" class="btn1 btn-danger" />
+
+                        <input type="button" id="updateButton" value="Update" class="btn btn-primary" />
+                        @*<input type="button" onclick="goBack()" value="Back" class="btn btn-primary" />*@
+                    </div>
+                </div>
+
+
+                @*<div class="form-group21">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" value="Save" class="btn btn-default" onclick="saveForm()" />
+                        </div>
+                    </div>*@
+
+
+                <div class="form-group23">
+                    <!-- Backward button -->
+
+                    <input type="image" class="img" src="@Url.Content("~/Content/Image/backward.png")" alt="Backward" onclick="goBack()" />
+
+                    <!-- Forward button -->
+                    <input type="image" class="img1" src="@Url.Content("~/Content/Image/forward.png")" alt="Forward" onclick="goForward()" />
+
+
+                </div>
+
+
+                @using (Html.BeginForm("Delete", "bookentry", FormMethod.Post, new { id = "deleteForm", @class = "form-horizontal" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.AccessionNo)
+
+
+                }
+
+                @using (Html.BeginForm("Update", "bookentry", FormMethod.Post, new { id = "updateForm", @class = "form-horizontal" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model => model.AccessionNo)
+                    @Html.HiddenFor(model => model.BarcodeID)
+                    @Html.HiddenFor(model => model.Title)
+                    @Html.HiddenFor(model => model.Author)
+                    @Html.HiddenFor(model => model.Subject)
+                    @Html.HiddenFor(model => model.Publisher)
+                    @Html.HiddenFor(model => model.Edition)
+                    @Html.HiddenFor(model => model.Year)
+                    @Html.HiddenFor(model => model.Pages)
+                    @Html.HiddenFor(model => model.Vol)
+                    @Html.HiddenFor(model => model.Location)
+                    @Html.HiddenFor(model => model.Topic)
+                    @Html.HiddenFor(model => model.ISBN)
+                    @Html.HiddenFor(model => model.Source)
+                    @Html.HiddenFor(model => model.Class)
+                    @Html.HiddenFor(model => model.BillNo)
+                    @Html.HiddenFor(model => model.Date)
+                    @Html.HiddenFor(model => model.BookNo)
+                    @Html.HiddenFor(model => model.Cost)
+                    @Html.HiddenFor(model => model.WithdrawlNo_Date)
+                    @Html.HiddenFor(model => model.Remarks)
+
+
+
+
+                }
+                <div class="link">
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+                @*@Html.ActionLink("bookentry", "Index", "bookentry")*@
+            </div>
+        }
+    </div>
+    <div class="right-sidebar">
+        <!-- Right sidebar content -->
+        <h2><center>MY LIBRARY</center></h2>
+        <ul>
+            <li><a href="https://localhost:44352/Home/listbook">OPEN IN EXCEL</a></li>
+            <li><a href="https://localhost:44352/Home/listbooks">LIST OF BOOKS</a></li>
+            <li><a href="https://localhost:44352/bookentry/Index">NEW BOOK ENTRY</a></li>
+            <li><a href="https://localhost:44352/IssueBook/Issuebook">ISSUE BOOK</a></li>
+            <li><a href="https://localhost:44352/IssueBook/Receivebook">RECEIVE BOOK</a></li>
+            <li><a href="https://localhost:44352/IssueBook/IssueR%CC%A5egister">BOOKS ISSUE REGISTER</a></li>
+            <li><a href="https://localhost:44352/IssueBook/ReceiveR%CC%A5egister"> BOOKS RECEIVE REGISTER</a></li>
+            <li><a href="https://localhost:44352/IssueBook/BookLedger">BOOK LEDGER</a></li>
+            <li><a href="https://localhost:44352/pendingbook/bookpending">PENDING BOOK</a></li>
+
+        </ul>
+    </div>
+</body>
+</html>

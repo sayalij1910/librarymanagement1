@@ -1,0 +1,251 @@
+﻿body {
+    font-family: Arial, Helvetica, sans - serif;
+    font-size: 13 px;
+    background-image: url('image/immm.png');
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #f1c3e1;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 536px;
+}
+
+.navbar {
+    background-color: #333; /* Set the background color of the navbar */
+    overflow: hidden; /* Ensure content doesn't overlap the navbar */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin-left: -218px;
+}
+
+    .navbar a {
+        float: left; /* Float the links to the left */
+        display: block; /* Display links as block elements */
+        color: #fff; /* Text color for links */
+        text-align: center; /* Center align text */
+        padding: 14px 10px; /* Padding for each link */
+        text-decoration: none; /* Remove underline from links */
+        margin-top: -1px;
+    }
+
+        .navbar a:hover {
+            background-color: #555; /* Change background color on hover */
+        }
+
+.active {
+    background-color: #4CAF50; /* Set background color for the active link */
+    color: white; /* Text color for the active link */
+}
+
+/* CSS for Vertical Sidebar */
+.sidebar {
+    height: 100%; /* Set the height of the sidebar to 100% */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fix the position of the sidebar */
+    top: 0; /* Position the sidebar at the top */
+    left: 0; /* Position the sidebar on the left side */
+    background-color: #f0f0f0; /* Set the background color of the sidebar */
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+    .sidebar ul {
+        list-style-type: none; /* Remove default list styling */
+        padding: 0;
+    }
+
+        .sidebar ul li {
+            padding: 8px; /* Add padding to each list item */
+        }
+
+            .sidebar ul li a {
+                text-decoration: none; /* Remove underline from links */
+                color: #333; /* Set text color for links */
+                display: block; /* Display links as block elements */
+            }
+
+                .sidebar ul li a:hover {
+                    background-color: #ccc; /* Change background color on hover */
+                }
+/* Form Row CSS */
+.h1 {
+    color: blue;
+    margin-top: -40px;
+    font: bold;
+}
+
+.editor-field {
+    margin-left: 4px;
+    margin-top: 8px;
+    font: bold;
+}
+
+.editor-field1 {
+    margin-left: 226px;
+    margin-top: -50px;
+    font: bold;
+}
+
+.editor-field2 {
+    margin-left: 446px;
+    margin-top: -51px;
+    font: bold;
+}
+
+#txtbox {
+    margin-left: 215px;
+    margin-top: 2px;
+    box-shadow: inherit;
+}
+
+#txtbox1 {
+    margin-left: -10px;
+    margin-top: 61px;
+}
+
+.btn {
+    color: black;
+    background-color: yellow;
+    width: 114px;
+    padding: 24px;
+    border-color: black;
+    text-align: center;
+    font-size: 19px;
+    margin-left: 611px;
+    margin-top: -29px;
+    font-weight: bold;
+    
+}
+
+.btn1 {
+    color: black;
+    /*background-color: white;*/
+    padding: 15px;
+    margin-left: 733px;
+    margin-top: -68px;
+    width: 86px;
+    text-shadow: 0 0 1px rgba(0,0,0,0.5);
+    
+   
+}
+
+
+.img1 {
+    margin-left: 21px;
+    margin-top: 30px;
+    height: 50px;
+    width: 48px;
+}
+
+.img {
+    margin-left: -143px;
+    margin-top: 30px;
+    height: 50px;
+    width: 48px;
+}
+
+.form-group23 {
+    margin-left: 800px;
+    margin-top: -25px;
+}
+
+
+.heading {
+    color: blue;
+    text-align: right;
+    margin-top: -50px;
+    margin-bottom: -20px;
+    font-size: 12px;
+    margin-right: 185px;
+}
+
+.heading1 {
+    color: blue;
+    text-align: left;
+    margin-left: 122px;
+    font-size: 12px;
+    margin-bottom: -14px;
+}
+
+.form-groups2 {
+    margin-right: 157px;
+    margin-left: 567px;
+    position: initial;
+    margin-top: -39px;
+}
+
+#txtbox11 {
+    width: 550px;
+}
+
+#txtbox12 {
+    margin-right: 29px;
+    /* margin-left: 0px; */
+    /* position: initial; */
+    margin-top: 40px;
+    width: 235px;
+}
+
+.editor-fields1 {
+    margin-left: 567px;
+    margin-right: 17px;
+    margin-top: -40px;
+    position: initial;
+}
+.editor-field3 {
+    margin-top: -37px;
+}
+
+#txtbox3 {
+    margin-top: 40px;
+    width: 388px;
+}
+
+.editor-field4 {
+    margin-top: -40px;
+    margin-left: 219px;
+}
+
+#txtbox2 {
+    margin-top: 37px;
+}
+.right-sidebar {
+    height: 100%; /* Set the height of the sidebar to 100% */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fix the position of the sidebar */
+    top: 0; /* Position the sidebar at the top */
+    left: 1167px; /* Position the sidebar on the left side */
+    background-color: #f0f0f0; /* Set the background color of the sidebar */
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+    .right-sidebar ul {
+        list-style-type: none; /* Remove default list styling */
+        padding: 0;
+    }
+
+        .right-sidebar ul li {
+            padding: 8px; /* Add padding to each list item */
+        }
+
+            .right-sidebar ul li a {
+                text-decoration: none; /* Remove underline from links */
+                color: #333; /* Set text color for links */
+                display: block; /* Display links as block elements */
+                font-family: 'Times New Roman';
+                font-size: 16px;
+            }
+
+                .right-sidebar ul li a:hover {
+                    background-color: #ccc; /* Change background color on hover */
+                }
+.table-responsive {
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 80%;
+    max-width: 100%;
+}

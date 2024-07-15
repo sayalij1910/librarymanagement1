@@ -1,0 +1,203 @@
+﻿@model List<librarymanagement1.Models.Book>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/layout.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/books.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="#" class="active"></a>
+        </div>
+        <div class="sidebar">
+            
+        </div>
+        <div class="h1">
+            <h1><center>LIST OF BOOKS</center></h1>
+        </div>
+
+        <div class="form-row">
+            <form method="get" action="@Url.Action("Index", "Home")">
+                <select class="dropdown">
+                    <option value="1">AccessionNo</option>
+                    <option value="2">Author</option>
+                    <option value="3">BarcodeID</option>
+                    <option value="4">BillNo</option>
+                    <option value="5">BookNo</option>
+                    <option value="6">Class</option>
+                    <option value="7">Cost</option>
+                    <option value="8">Edition</option>
+                    <option value="9">ISBN</option>
+                    <option value="10">Location</option>
+                    <option value="11">Topic</option>
+                    <option value="12">Vol</option>
+                    <option value="13">Title</option>
+                    <option value="14">Subject</option>
+                    <option value="15">Publisher</option>
+                    <option value="16">Year</option>
+                    <option value="17">Pages</option>
+                    <option value="18">Source</option>
+                    <option value="19">WithdrawlNo_Date</option>
+                    <option value="20">Remarks</option>
+                    <option value="21">Date</option>
+
+
+                </select>
+                <input type="text" class="textbox" placeholder="Enter value">
+
+                <select class="dropdown1">
+                    <option value="1">AccessionNo</option>
+                    <option value="2">Author</option>
+                    <option value="3">Barcode</option>
+                    <option value="4">BillNo</option>
+                    <option value="5">BookNo</option>
+                    <option value="6">Class</option>
+                    <option value="7">Cost</option>
+                    <option value="8">Edition</option>
+                    <option value="9">ISBN</option>
+                    <option value="10">Location</option>
+                    <option value="11">Topic</option>
+                    <option value="12">Vol</option>
+                    <option value="13">Title</option>
+                    <option value="14">Subject</option>
+                    <option value="15">Publisher</option>
+                    <option value="16">Year</option>
+                    <option value="17">Pages</option>
+                    <option value="18">Source</option>
+                    <option value="19">WithdrawlNo_Date</option>
+                    <option value="20">Remarks</option>
+                    <option value="21">Date</option>
+                </select>
+                <input type="text" class="textbox1" name="filterValue2" placeholder="Enter value">
+                <button class="button">OK</button>
+            </form>
+            <button class="button1" onclick="window.print()">Print</button>
+
+        </div>
+        @*<hr />*@
+        <div class="table-responsive">
+            <table class="styled-table table-striped" border="1">
+                <tr>
+                    <th>AccNo</th>
+                    <th>Barcode Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Subject</th>
+                    <th>Publisher</th>
+                    <th>Edition</th>
+                    <th>Year</th>
+                    <th>Pages</th>
+                    <th>Vol</th>
+                    <th>Location</th>
+                    <th>Topic</th>
+                    <th>ISBN</th>
+                    <th>Source</th>
+                    <th>Class</th>
+                    <th>BillNo</th>
+                    <th>Date</th>
+                    <th>BookNo</th>
+                    <th>WithdrawlNo_date</th>
+                    <th>Remarks</th>
+                </tr>
+
+                @foreach (var book in Model ?? new List<librarymanagement1.Models.Book>())
+                {
+                    Console.WriteLine(book);
+                    <tr>
+                        <td>@book.AccessionNo</td>
+                        <td>@book.BarcodeID</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Subject</td>
+                        <td>@book.Publisher</td>
+                        <td>@book.Edition</td>
+                        <td>@book.Year</td>
+                        <td>@book.Pages</td>
+                        <td>@book.Vol</td>
+                        <td>@book.Location</td>
+                        <td>@book.Topic</td>
+                        <td>@book.ISBN</td>
+                        <td>@book.Source</td>
+                        <td>@book.Class</td>
+                        <td>@book.BillNo</td>
+                        <td>@book.Date</td>
+                        <td>@book.BookNo</td>
+                        <td>@book.WithdrawlNo_Date</td>
+                        <td>@book.Remarks</td>
+                    </tr>
+                    <tr>
+                    </tr>
+
+                }
+
+            </table>
+        </div>
+
+        @RenderBody()
+
+        <footer>
+            @*class="footer">*@
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-inline">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="selectAllCheckbox"> Select All
+                        </label>
+                        <div class="txt">
+                            <h5 class="h5">No.of Barcodes to keep blank</h5><input type="text" class="txtbox" style="width:75px" />
+                        </div>
+                        <button type="button" class="btn btn-primary1" id="printSticker">Print Sticker</button>
+                        <button type="button" class="btn btn-primary" id="importToExcel">Import From Excel</button>
+                        <button type="button" class="btn btn-success" id="exportToExcel">Export to Excel</button>
+                        <label class="checkbox-inline1">
+                            <input type="checkbox" id="selectAllCheckbox1"> Available
+                        </label>
+                        <label class="checkbox-inline2">
+                            <input type="checkbox" id="selectAllCheckbox2"> Issued Books
+                        </label>
+                        @*@Html.ActionLink("Open in Excel", "listbooks", "Home", null, new { @class = "btn btn-primary" })*@
+
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+
+
+    </div>
+    <div class="right-sidebar">
+        <!-- Right sidebar content -->
+        <h3><center>MY LIBRARY</center></h3>
+        <ul>
+            <li><a href="https://localhost:44352/Home/listbook">OPEN IN EXCEL</a></li>
+            <li><a href="https://localhost:44352/Home/listbooks">LIST OF BOOKS</a></li>
+            <li><a href="https://localhost:44352/bookentry/Index">NEW BOOK ENTRY</a></li>
+            <li><a href="https://localhost:44352/IssueBook/Issuebook">ISSUE BOOK</a></li>
+            <li><a href="https://localhost:44352/IssueBook/Receivebook">RECEIVE BOOK</a></li>
+            <li><a href="https://localhost:44352/IssueBook/IssueR%CC%A5egister">BOOKS ISSUE REGISTER</a></li>
+            <li><a href="https://localhost:44352/IssueBook/ReceiveR%CC%A5egister"> BOOKS RECEIVE REGISTER</a></li>
+            <li><a href="https://localhost:44352/IssueBook/BookLedger">BOOK LEDGER</a></li>
+            <li><a href="https://localhost:44352/pendingbook/bookpending">PENDING BOOK</a></li>
+
+        </ul>
+    </div>
+
+    <script src="~/Scripts/jquery-ui-1.13.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @*<script src="~/Scripts/books.js"></script>*@
+    }
+
+</body>
+</html>

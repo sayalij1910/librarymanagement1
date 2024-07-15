@@ -1,0 +1,233 @@
+﻿body {
+    font-family: Arial, Helvetica, sans - serif;
+    font-size: 13 px;
+    /*background-image: url('image/bookentry.png');*/
+    background-image: url('image/immm.png');
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #f1c3e1;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 536px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 2px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: lightgoldenrodyellow;
+}
+
+tr:hover {
+    background-color: #e6e6e6;
+}
+
+tr:nth-child(2n+1) {
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    background-color: #333; /* Set the background color of the navbar */
+    overflow: hidden; /* Ensure content doesn't overlap the navbar */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin-left: -218px;
+}
+
+    .navbar a {
+        float: left; /* Float the links to the left */
+        display: block; /* Display links as block elements */
+        color: #fff; /* Text color for links */
+        text-align: center; /* Center align text */
+        padding: 14px 10px; /* Padding for each link */
+        text-decoration: none; /* Remove underline from links */
+        margin-top: -1px;
+    }
+
+        .navbar a:hover {
+            background-color: #555; /* Change background color on hover */
+        }
+
+.active {
+    background-color: #4CAF50; /* Set background color for the active link */
+    color: white; /* Text color for the active link */
+}
+
+/* CSS for Vertical Sidebar */
+.sidebar {
+    height: 100%; /* Set the height of the sidebar to 100% */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fix the position of the sidebar */
+    top: 0; /* Position the sidebar at the top */
+    left: 0; /* Position the sidebar on the left side */
+    background-color: #f0f0f0; /* Set the background color of the sidebar */
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+    .sidebar ul {
+        list-style-type: none; /* Remove default list styling */
+        padding: 0;
+    }
+
+        .sidebar ul li {
+            padding: 8px; /* Add padding to each list item */
+        }
+
+            .sidebar ul li a {
+                text-decoration: none; /* Remove underline from links */
+                color: #333; /* Set text color for links */
+                display: block; /* Display links as block elements */
+            }
+
+                .sidebar ul li a:hover {
+                    background-color: #ccc; /* Change background color on hover */
+                }
+/* Form Row CSS */
+
+.editor {
+    margin-left: 8px;
+}
+
+#txtbox {
+    width: 113px;
+}
+
+.editor-field1 {
+    margin-top: -41px;
+    margin-left: 147px;
+}
+
+.editor-field11 {
+    margin-top: 1px;
+    margin-left: 182px;
+}
+
+
+#date-picker {
+    margin-left: -63px;
+    width: 113px;
+}
+
+#txtbox1 {
+    margin-top: 0px;
+    margin-left: 365px;
+    width: 145px;
+}
+
+#date-picker1 {
+    margin-left: 243px;
+    margin-top: 1px;
+    width: 113px;
+}
+
+.editor-field2 {
+    margin-left: 286px;
+    margin-top: -40px;
+}
+
+/*.editor-field12 {
+    margin-left: 246px;
+    margin-top: 1px;
+    width: 113px;
+}*/
+
+.editor-field3 {
+    margin-top: -40px;
+    margin-left: 400px;
+}
+
+/*.editor-field13 {
+}*/
+
+.editor-field4 {
+    margin-left: 556px;
+    margin-top: -40px;
+}
+
+#txtbox2 {
+    margin-left: 515px;
+    width: 150px;
+}
+
+/*.editor-field14 {
+}*/
+
+.editor-field5 {
+    margin-left: 715px;
+    margin-top: -40px;
+}
+
+/*.editor-field15 {
+}*/
+
+
+#txtbox3 {
+    margin-left: 671px;
+    width: 128px;
+}
+.table-responsive {
+    overflow-x: auto;
+    /*white-space: nowrap;*/ /* Optional: Prevent text wrapping in cells */
+    /*max-width: 100%;*/
+    overflow-y: auto;
+    height: 80%;
+}
+
+.h1 {
+    color: blue;
+    margin-top: -40px;
+    font: bold;
+}
+.right-sidebar {
+    height: 100%; /* Set the height of the sidebar to 100% */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fix the position of the sidebar */
+    top: 0; /* Position the sidebar at the top */
+    left: 1167px; /* Position the sidebar on the left side */
+    background-color: #f0f0f0; /* Set the background color of the sidebar */
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+    .right-sidebar ul {
+        list-style-type: none; /* Remove default list styling */
+        padding: 0;
+    }
+
+        .right-sidebar ul li {
+            padding: 8px; /* Add padding to each list item */
+        }
+
+            .right-sidebar ul li a {
+                text-decoration: none; /* Remove underline from links */
+                color: #333; /* Set text color for links */
+                display: block;
+                /* Display links as block elements */
+                font-family: 'Times New Roman';
+                font-size: 16px;
+            }
+
+                .right-sidebar ul li a:hover {
+                    background-color: #ccc; /* Change background color on hover */
+                }

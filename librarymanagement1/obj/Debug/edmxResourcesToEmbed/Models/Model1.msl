@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="library_mangModelStoreContainer" CdmEntityContainer="library_mangEntities1">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="library_mangModel.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="AccessionNo" ColumnName="AccessionNo" />
+          <ScalarProperty Name="BarcodeID" ColumnName="BarcodeID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Edition" ColumnName="Edition" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Pages" ColumnName="Pages" />
+          <ScalarProperty Name="Vol" ColumnName="Vol" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="BookNo" ColumnName="BookNo" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="WithdrawlNo_Date" ColumnName="WithdrawlNo_Date" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="library_mangModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="AdmissionNo" ColumnName="AdmissionNo" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="BusNo" ColumnName="BusNo" />
+          <ScalarProperty Name="Caste" ColumnName="Caste" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="House" ColumnName="House" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="FMobile" ColumnName="FMobile" />
+          <ScalarProperty Name="FEducation" ColumnName="FEducation" />
+          <ScalarProperty Name="FOccupation" ColumnName="FOccupation" />
+          <ScalarProperty Name="F_DOB" ColumnName="F_DOB" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="MMobile" ColumnName="MMobile" />
+          <ScalarProperty Name="MEducation" ColumnName="MEducation" />
+          <ScalarProperty Name="MOccupation" ColumnName="MOccupation" />
+          <ScalarProperty Name="M_DOB" ColumnName="M_DOB" />
+          <ScalarProperty Name="Parents_Wedding_Date" ColumnName="Parents_Wedding_Date" />
+          <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+          <ScalarProperty Name="NameOfSchool" ColumnName="NameOfSchool" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AdmissionFormNo" ColumnName="AdmissionFormNo" />
+          <ScalarProperty Name="DateOfAdmission" ColumnName="DateOfAdmission" />
+          <ScalarProperty Name="LastExamGiven" ColumnName="LastExamGiven" />
+          <ScalarProperty Name="LedgerBalance" ColumnName="LedgerBalance" />
+          <ScalarProperty Name="FeesBalance" ColumnName="FeesBalance" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="AadharCardNo" ColumnName="AadharCardNo" />
+          <ScalarProperty Name="Biometrics" ColumnName="Biometrics" />
+          <ScalarProperty Name="Board_University" ColumnName="Board_University" />
+          <ScalarProperty Name="ChildUniqueID" ColumnName="ChildUniqueID" />
+          <ScalarProperty Name="GRNo" ColumnName="GRNo" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="VisionLeft" ColumnName="VisionLeft" />
+          <ScalarProperty Name="VisionRight" ColumnName="VisionRight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="DentalHygiene" ColumnName="DentalHygiene" />
+          <ScalarProperty Name="HostelRoomNo" ColumnName="HostelRoomNo" />
+          <ScalarProperty Name="BedNo" ColumnName="BedNo" />
+          <ScalarProperty Name="ScholarshipNo" ColumnName="ScholarshipNo" />
+          <ScalarProperty Name="StatusInSchool" ColumnName="StatusInSchool" />
+          <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

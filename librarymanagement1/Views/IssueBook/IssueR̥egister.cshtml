@@ -1,0 +1,222 @@
+﻿
+@model List<librarymanagement1.Models.ViewModel>
+
+
+@{
+    ViewBag.Title = "IssueRegister";
+    Layout = null;
+
+}
+<html>
+<head>
+    <link href="~/Content/Regstyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.13.2.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="#" class="active">Home</a>
+        </div>
+
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+           
+        </div>
+
+        <div class="h1">
+            <h1><center>BOOK ISSUE REGISTER</center></h1>
+        </div>
+        @using (Html.BeginForm("IssueRegister", "IssueBook", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+        }
+        <div class="editor-field1">
+
+            @Html.Label("From")
+
+        </div>
+        <div class="editor-field11">
+
+
+            @Html.TextBoxFor(model => model[0].Date, new { id = "date-picker", style = "width:95px" })
+
+        </div>
+        <div class="editor-field2">
+            @Html.Label("To")
+
+        </div>
+        <div class="editor-field12">
+
+
+
+
+            @Html.TextBoxFor(model => model[0].Date, new { id = "date-picker1", style = "width:95px" })
+
+
+
+        </div>
+
+
+
+        <div class="form-row">
+            <select class="dropdown">
+                <option value="1">AccessionNo</option>
+                <option value="2">Author</option>
+                <option value="3">Barcode</option>
+                <option value="4">BillNo</option>
+                <option value="5">BookNo</option>
+                <option value="6">Class</option>
+                <option value="7">Cost</option>
+                <option value="8">Edition</option>
+                <option value="9">ISBN</option>
+                <option value="10">Location</option>
+                <option value="11">BookNo</option>
+                <option value="12">Class</option>
+            </select>
+            <input type="text" class="textbox" placeholder="Enter value">
+
+            <select class="dropdown1">
+                <option value="1">AccessionNo</option>
+                <option value="2">Author</option>
+                <option value="3">Barcode</option>
+                <option value="4">BillNo</option>
+                <option value="5">BookNo</option>
+                <option value="6">Class</option>
+                <option value="7">Cost</option>
+                <option value="8">Edition</option>
+                <option value="9">ISBN</option>
+                <option value="10">Location</option>
+                <option value="11">BookNo</option>
+                <option value="12">Class</option>
+
+            </select>
+            <input type="text" class="textbox1" placeholder="Enter value">
+
+
+
+            <button class="button" onclick="okButtonClick()">OK</button>
+            <br />
+        </div>
+
+        <div class="table-responsive">
+            <table class="table1" border="1">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>SrNo</th>
+                        <th>AddmNo</th>
+                        <th>AccNo</th>
+                        <th>Name</th>
+                        <th>RollNo</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Subject</th>
+                        <th>Publisher</th>
+                        <th>Edition</th>
+                        <th>Days Delayed</th>
+                        <th>Total Fine</th>
+                        <th>Rec.No</th>
+                        <th>Class</th>
+                        <th>Section</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Date</td>
+                                <td>@item.SrNo</td>
+                                <td>@item.AddmissionNo</td>
+                                <td>@item.AccessionNo</td>
+                                <td>@item.Name</td>
+                                <td>@item.RollNo</td>
+                                <td>@item.Title</td>
+                                <td>@item.Author</td>
+                                <td>@item.Subject</td>
+                                <td>@item.Publisher</td>
+                                <td>@item.Edition</td>
+                                <td>@item.Date</td>
+                                <td>@item.Cost</td>
+                                <td>@item.SrNo</td>
+                                <td>@item.Class</td>
+                                <td>@item.Section</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            @*</div>*@
+
+            <hr />
+        </div>
+
+        <footer class="foot">
+            <input type="checkbox" class="selectAllCheckbox"> Select All
+
+            <button class="button1" id="sendSmsButton">Send SMS</button>
+        </footer>
+
+        <script type="text/javascript">
+                debugger
+                $(document).ready(function () {
+                    debugger
+                    $('#date-picker').datepicker();
+                });
+                debugger
+               $(document).ready(function () {
+                    debugger
+                    $('#date-picker1').datepicker();
+                });
+
+    $(document).ready(function () {
+        $('#sendSmsButton').click(function () {
+            // Assuming you want to send data from the form via AJAX
+            var formData = $('#issueForm').serialize(); // Serialize form data
+
+            $.ajax({
+                url: '@Url.Action("SendSMS", "ControllerName")', // Replace with your controller and action
+                type: 'POST', // Assuming you use POST method
+                data: formData,
+                success: function (response) {
+                    // Handle success response here, if needed
+                    alert('SMS sent successfully!');
+                },
+                error: function (error) {
+                    // Handle error response here, if needed
+                    alert('Error sending SMS: ' + error.responseText);
+                }
+            });
+        });
+    });
+            function okButtonClick() {
+                alert("OK Button Clicked.");
+            }
+        </script>
+
+
+        <div class="right-sidebar">
+            <!-- Right sidebar content -->
+            <h2><center>MY LIBRARY</center></h2>
+            <ul>
+                <li><a href="https://localhost:44352/Home/listbook">OPEN IN EXCEL</a></li>
+                <li><a href="https://localhost:44352/Home/listbooks">LIST OF BOOKS</a></li>
+                <li><a href="https://localhost:44352/bookentry/Index">NEW BOOK ENTRY</a></li>
+                <li><a href="https://localhost:44352/IssueBook/Issuebook">ISSUE BOOK</a></li>
+                <li><a href="https://localhost:44352/IssueBook/Receivebook">RECEIVE BOOK</a></li>
+                <li><a href="https://localhost:44352/IssueBook/IssueR%CC%A5egister">BOOKS ISSUE REGISTER</a></li>
+                <li><a href="https://localhost:44352/IssueBook/ReceiveR%CC%A5egister"> BOOKS RECEIVE REGISTER</a></li>
+                <li><a href="https://localhost:44352/IssueBook/BookLedger">BOOK LEDGER</a></li>
+                <li><a href="https://localhost:44352/pendingbook/bookpending">PENDING BOOK</a></li>
+
+            </ul>
+        </div>
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="library_mangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="AccessionNo" />
+    </Key>
+    <Property Name="AccessionNo" Type="Int32" Nullable="false" />
+    <Property Name="BarcodeID" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Edition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Pages" Type="Int32" />
+    <Property Name="Vol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Topic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillNo" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="BookNo" Type="Int32" />
+    <Property Name="Cost" Type="Int64" />
+    <Property Name="WithdrawlNo_Date" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="AdmissionNo" />
+    </Key>
+    <Property Name="AdmissionNo" Type="Int32" Nullable="false" />
+    <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RollNo" Type="Int32" />
+    <Property Name="Route" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BusNo" Type="Int32" />
+    <Property Name="Caste" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="House" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="Int64" />
+    <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
+    <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FMobile" Type="Int64" />
+    <Property Name="FEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_DOB" Type="DateTime" Precision="0" />
+    <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MMobile" Type="Int64" />
+    <Property Name="MEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="M_DOB" Type="DateTime" Precision="0" />
+    <Property Name="Parents_Wedding_Date" Type="DateTime" Precision="0" />
+    <Property Name="Email_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameOfSchool" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdmissionFormNo" Type="Int64" />
+    <Property Name="DateOfAdmission" Type="DateTime" Precision="0" />
+    <Property Name="LastExamGiven" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LedgerBalance" Type="Int32" />
+    <Property Name="FeesBalance" Type="Int32" />
+    <Property Name="Comments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Marks" Type="Double" />
+    <Property Name="AadharCardNo" Type="Int64" />
+    <Property Name="Biometrics" Type="Int64" />
+    <Property Name="Board_University" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChildUniqueID" Type="Int32" />
+    <Property Name="GRNo" Type="Int32" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VisionLeft" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VisionRight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DentalHygiene" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HostelRoomNo" Type="Int32" />
+    <Property Name="BedNo" Type="Int32" />
+    <Property Name="ScholarshipNo" Type="Int32" />
+    <Property Name="StatusInSchool" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Discontinued" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="library_mangEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+  </EntityContainer>
+</Schema>
