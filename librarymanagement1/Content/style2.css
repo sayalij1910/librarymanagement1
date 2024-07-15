@@ -91,17 +91,20 @@
     font: bold;
 }
 
+.editors-field {
+    margin-left: 217px;
+    position: initial;
+    margin-right: 413px;
+    margin-top: 8px;
+}
+
 .editor-field2 {
     margin-left: 446px;
     margin-top: -51px;
     font: bold;
 }
 
-#txtbox {
-    margin-left: 215px;
-    margin-top: 2px;
-    box-shadow: inherit;
-}
+
 
 #txtbox1 {
     margin-left: -10px;

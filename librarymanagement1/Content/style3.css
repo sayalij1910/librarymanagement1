@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family: Arial, Helvetica, sans - serif;
     font-size: 13 px;
     background-image: url('image/immm.png');
@@ -79,33 +79,50 @@
 }
 
 .editor-field {
-    margin-left: 4px;
+    margin-left: 1px;
     margin-top: 8px;
-    font: bold;
+    /* margin-bottom: 1px; */
+    margin-right: 634px;
 }
 
+.editors-field {
+    margin-left: 1px;
+    margin-right: 629px;
+    position: inherit;
+}
 .editor-field1 {
     margin-left: 226px;
-    margin-top: -50px;
-    font: bold;
+    margin-top: -40px;
+    margin-right: 430px;
+}
+
+.editors-field1 {
+    margin-left: 219px;
+    margin-right: 411px;
+    position: inherit;
 }
 
 .editor-field2 {
     margin-left: 446px;
-    margin-top: -51px;
-    font: bold;
+    margin-top: -40px;
+    margin-right: 233px;
+}
+.editors-field2 {
+    margin-left: 412px;
+    margin-right: 217px;
+    position: inherit;
 }
 
-#txtbox {
+/*#txtbox {
     margin-left: 215px;
     margin-top: 2px;
     box-shadow: inherit;
-}
+}*/
 
-#txtbox1 {
+/*#txtbox1 {
     margin-left: -10px;
     margin-top: 61px;
-}
+}*/
 
 .btn {
     color: black;
@@ -118,7 +135,6 @@
     margin-left: 611px;
     margin-top: -29px;
     font-weight: bold;
-    
 }
 
 .btn1 {
@@ -129,8 +145,6 @@
     margin-top: -68px;
     width: 86px;
     text-shadow: 0 0 1px rgba(0,0,0,0.5);
-    
-   
 }
 
 
@@ -172,7 +186,7 @@
 }
 
 .form-groups2 {
-    margin-right: 157px;
+    margin-right: -2px;
     margin-left: 567px;
     position: initial;
     margin-top: -39px;
@@ -183,36 +197,56 @@
 }
 
 #txtbox12 {
-    margin-right: 29px;
+    /*margin-right: 29px;*/
     /* margin-left: 0px; */
     /* position: initial; */
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     width: 235px;
 }
-
 .editor-fields1 {
     margin-left: 567px;
     margin-right: 17px;
     margin-top: -40px;
     position: initial;
 }
-.editor-field3 {
-    margin-top: -37px;
+.editors-fields1{
+    margin-left: 564px;
 }
 
+.editor-field3 {
+    margin-top: -37px;
+    margin-right: 642px;
+}
+
+.editors-field3 {
+    margin-right: 630px;
+    position: initial;
+}
 #txtbox3 {
-    margin-top: 40px;
     width: 388px;
 }
 
 .editor-field4 {
     margin-top: -40px;
     margin-left: 219px;
+    margin-right: 194px;
+}
+.editors-field4 {
+    margin-left: 218px;
+    width: 388px;
+    
+}
+.editor-fields{
+    margin-right: 250px;
 }
 
-#txtbox2 {
-    margin-top: 37px;
+.form-groups1{
+    margin-right: 250px;
 }
+/*#txtbox2 {
+    margin-top: 37px;
+}*/
+
 .right-sidebar {
     height: 100%; /* Set the height of the sidebar to 100% */
     width: 200px; /* Set the width of the sidebar */
@@ -243,6 +277,7 @@
                 .right-sidebar ul li a:hover {
                     background-color: #ccc; /* Change background color on hover */
                 }
+
 .table-responsive {
     overflow-x: auto;
     overflow-y: auto;
